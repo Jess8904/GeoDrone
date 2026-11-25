@@ -1,0 +1,12 @@
+# Servidor de procesamiento de GeoDrone (Parte 2)
+# Uso:  docker compose up -d     -> NodeODM en http://localhost:3000
+services:
+  nodeodm:
+    image: opendronemap/nodeodm:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data/nodeodm:/var/www/data
+    restart: unless-stopped
+    # Limita las tareas simultaneas para no agotar la RAM (16 GB minimo)
+    command: ["--max_concurrency", "2"]

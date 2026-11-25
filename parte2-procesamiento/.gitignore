@@ -1,0 +1,6 @@
+fotos/
+salida/
+data/
+__pycache__/
+*.pyc
+uuid_*.txt
